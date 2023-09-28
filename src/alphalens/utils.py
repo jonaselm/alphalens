@@ -335,7 +335,7 @@ def compute_forward_returns(
             days_diffs.append(period_len.components.days)
 
         delta_days = (
-            period_len.components.days - mode(days_diffs, keepdims=True).mode[0]
+            period_len.components.days - mode(days_diffs).mode[0]
         )
         period_len -= pd.Timedelta(days=delta_days)
         label = timedelta_to_string(period_len)
